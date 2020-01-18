@@ -29,8 +29,21 @@ class profile::winbase {
     command => 'net.exe user Guest /active:no',
   }
 
+#Purge Un-Managed Users
   resources { 'user':
     purge => true,
     unless_system_user => true,
   }
+
+#Manage ACL of System Files
+acl { 'c:/Windows/SysWOW64':
+#  purge       => true,
+  permissions => [
+   { identity => 'Administrators', rights => ['full'] },
+   { identity => 'Creator Owner', rights => ['full'] },
+   { identity => 'Authenticated Users', rights => ['read','execute'] },
+   { identity => 'System', rights => ['full'] }
+  ],
+}
+
 }
