@@ -36,7 +36,7 @@ class profile::winbase {
   }
 
 #Manage ACL of System Files
-acl { 'c:/Windows/SysWOW64/drivers':
+acl { 'c:/Temp':
 #  purge       => true,
   permissions => [
    { identity => 'Administrators', rights => ['full'] },
