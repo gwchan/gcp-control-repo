@@ -20,7 +20,13 @@ class profile::winbase {
     comment => 'Built-in account for guest access to the computer/domain (Managed by Puppet)',
   }
 
+  user { 'admin':
+    ensure => 'present',
+    groups => ['BUILTIN\Administrators'],
+  }
+
   exec { 'Disable Guest Account':
-    command     => 'net user Guest /active:no',
+    path => 'C:\\Windows\\System32',
+    command => 'net.exe user Guest /active:no',
   }
 }
