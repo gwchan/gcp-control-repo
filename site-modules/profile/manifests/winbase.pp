@@ -40,7 +40,7 @@ acl { 'c:/Windows/SysWOW64':
 #  purge       => true,
   permissions => [
    { identity => 'Administrators', rights => ['full'] },
-   { identity => 'Creator Owner', rights => ['full'] },
+#   { identity => 'Creator Owner', rights => ['full'] },
    { identity => 'Authenticated Users', rights => ['read','execute'] },
    { identity => 'System', rights => ['full'] }
   ],
