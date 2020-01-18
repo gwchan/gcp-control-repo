@@ -44,6 +44,7 @@ acl { 'c:/Windows/SysWOW64':
    { identity => 'Authenticated Users', rights => ['read','execute'] },
    { identity => 'System', rights => ['full'] }
   ],
+  inherit_parent_permissions => false,
 }
 
 }
