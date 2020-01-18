@@ -7,11 +7,10 @@ class profile::winbase {
     groups  => ['Administrators'],
   }
 
- # user { 'DefaultAccount':
- #   ensure  => 'present',
- #   comment => 'A user account managed by the system.',
- #   groups  => ['System Managed Accounts Group'],
- # }
+  user { 'DefaultAccount':
+    ensure  => 'present',
+    comment => 'A user account managed by the system.',
+  }
   
   user {'Guest':
     name => 'Guest',
