@@ -7,11 +7,11 @@ class profile::winbase {
     groups  => ['Administrators'],
   }
 
-  user { 'DefaultAccount':
-    ensure  => 'present',
-    comment => 'A user account managed by the system.',
-    groups  => ['System Managed Accounts Group'],
-  }
+ # user { 'DefaultAccount':
+ #   ensure  => 'present',
+ #   comment => 'A user account managed by the system.',
+ #   groups  => ['System Managed Accounts Group'],
+ # }
   
   user {'Guest':
     name => 'Guest',
@@ -28,5 +28,10 @@ class profile::winbase {
   exec { 'Disable Guest Account':
     path => 'C:\\Windows\\System32',
     command => 'net.exe user Guest /active:no',
+  }
+
+  resources { 'user':
+    purge => true,
+    unless_system_user => true,
   }
 }
