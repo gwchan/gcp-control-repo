@@ -11,6 +11,7 @@ mod 'puppetlabs/translate', '2.1.0'
 mod 'puppetlabs-powershell', '2.3.0'
 mod 'puppetlabs-reboot', '2.3.0'
 mod 'puppetlabs-dsc', '1.9.4'
+mod 'puppetlabs-acl', '3.1.0'
 
 mod 'puppetlabs-ntp', '8.2.0'
 
