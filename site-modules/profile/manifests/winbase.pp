@@ -4,13 +4,13 @@ class profile::winbase {
   user { 'Administrator':
     ensure  => 'present',
     comment => 'Built-in account for administering the computer/domain',
-    groups  => ['BUILTIN\Administrators'],
+    groups  => ['Administrators'],
   }
 
   user { 'DefaultAccount':
     ensure  => 'present',
     comment => 'A user account managed by the system.',
-    groups  => ['BUILTIN\System Managed Group'],
+    groups  => ['System Managed Accounts Group'],
   }
   
   user {'Guest':
@@ -22,7 +22,7 @@ class profile::winbase {
 
   user { 'admin':
     ensure => 'present',
-    groups => ['BUILTIN\Administrators'],
+    groups => ['Administrators'],
   }
 
   exec { 'Disable Guest Account':
