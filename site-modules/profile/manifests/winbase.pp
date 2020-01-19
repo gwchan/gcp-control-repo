@@ -64,21 +64,40 @@ class profile::winbase {
 
 #Set Maximum Event Logs Size
 
-  registry_value { 'HKEY_LOCAL_MACHINE\\SYSTEM\\ControlSet001\\Services\\EventLog\\Application\\MaxSize':
+  registry_value { 'HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\EventLog\\Application\\MaxSize':
     ensure => present,
     type   => 'dword',
     data   => '1024000000'
   }
 
-  registry_value { 'HKEY_LOCAL_MACHINE\\SYSTEM\\ControlSet001\\Services\\EventLog\\Security\\MaxSize':
+  registry_value { 'HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\EventLog\\Security\\MaxSize':
     ensure => present,
     type   => 'dword',
     data   => '512000000'
   }
 
-  registry_value { 'HKEY_LOCAL_MACHINE\\SYSTEM\\ControlSet001\\Services\\EventLog\\System\\MaxSize':
+  registry_value { 'HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\EventLog\\System\\MaxSize':
     ensure => present,
     type   => 'dword',
     data   => '512000000'
+  }
+
+#Set Retention for Event Logs
+  registry_value { 'HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\EventLog\\Application\\Retention':
+    ensure => present,
+    type   => 'dword',
+    data   => '0'
+  }
+
+  registry_value { 'HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\EventLog\\Security\\Retention':
+    ensure => present,
+    type   => 'dword',
+    data   => '0'
+  }
+
+  registry_value { 'HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\EventLog\\System\\Retention':
+    ensure => present,
+    type   => 'dword',
+    data   => '0'
   }
 }
