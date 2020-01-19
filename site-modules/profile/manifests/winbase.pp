@@ -61,4 +61,24 @@ class profile::winbase {
     type   => string,
     data   => 'Notice: Unauthorized access is strictly prohibited! All access will be logged and monitored'
   }
+
+#Set Maximum Event Logs Size
+
+  registry_value { 'HKEY_LOCAL_MACHINE\\SYSTEM\\ControlSet001\\Services\\EventLog\\Application\\MaxSize':
+    ensure => present,
+    type   => 'dword',
+    data   => '1024000000'
+  }
+
+  registry_value { 'HKEY_LOCAL_MACHINE\\SYSTEM\\ControlSet001\\Services\\EventLog\\Security\\MaxSize':
+    ensure => present,
+    type   => 'dword',
+    data   => '512000000'
+  }
+
+  registry_value { 'HKEY_LOCAL_MACHINE\\SYSTEM\\ControlSet001\\Services\\EventLog\\System\\MaxSize':
+    ensure => present,
+    type   => 'dword',
+    data   => '512000000'
+  }
 }
