@@ -36,17 +36,29 @@ class profile::winbase {
   }
 
 #Manage ACL of System Files
-acl { 'c:/Temp':
-#  purge       => true,
-  permissions => [
-   { identity => 'Administrators', rights => ['full'] },
-   { identity => 'Creator Owner', rights => ['full'] },
-   { identity => 'ALL APPLICATION PACKAGES', rights => ['read','execute'] },
-   { identity => 'ALL RESTRICTED APPLICATION PACKAGES', rights => ['read','execute'] },
-   { identity => 'Authenticated Users', rights => ['read','execute'] },
-   { identity => 'System', rights => ['full'] }
-  ],
-  inherit_parent_permissions => false,
-}
+  acl { 'c:/Temp':
+  #  purge       => true,
+    permissions => [
+    { identity => 'Administrators', rights => ['full'] },
+    { identity => 'Creator Owner', rights => ['full'] },
+    { identity => 'ALL APPLICATION PACKAGES', rights => ['read','execute'] },
+    { identity => 'ALL RESTRICTED APPLICATION PACKAGES', rights => ['read','execute'] },
+    { identity => 'Authenticated Users', rights => ['read','execute'] },
+    { identity => 'System', rights => ['full'] }
+    ],
+    inherit_parent_permissions => false,
+  }
 
+#Set Logon Message
+  registry_value { 'HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\\legalnoticecaption':
+    ensure => present,
+    type   => string,
+    data   => 'Notice: Unauthorized access is strictly prohibited! All access will be logged and monitored'
+  }
+
+  registry_value { 'HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\\legalnoticetext':
+    ensure => present,
+    type   => string,
+    data   => 'Notice: Unauthorized access is strictly prohibited! All access will be logged and monitored'
+  }
 }
