@@ -6,7 +6,7 @@ class profile::winbase {
     comment => 'Built-in account for administering the computer/domain',
     groups  => ['Administrators'],
   }
-
+#Test
   user { 'DefaultAccount':
     ensure  => 'present',
     comment => 'A user account managed by the system.',
