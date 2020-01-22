@@ -1,8 +1,8 @@
-class profile::winbase {
+class profile::winbase (
   Integer $application_log_max_size = 1024000000,
   Integer $security_log_max_size = 512000000,
   Integer $system_log_max_size = 512000000,
-}{
+){
   #the base profile should include component modules that will be on all windows nodes
   user { 'Administrator':
     ensure  => 'present',
