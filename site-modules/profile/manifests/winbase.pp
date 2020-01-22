@@ -1,5 +1,8 @@
 class profile::winbase {
-
+  Integer $application_log_max_size = 1024000000,
+  Integer $security_log_max_size = 512000000,
+  Integer $system_log_max_size = 512000000,
+}{
   #the base profile should include component modules that will be on all windows nodes
   user { 'Administrator':
     ensure  => 'present',
@@ -67,19 +70,19 @@ class profile::winbase {
   registry_value { 'HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\EventLog\\Application\\MaxSize':
     ensure => present,
     type   => 'dword',
-    data   => '1024000000'
+    data   => $application_log_max_size
   }
 
   registry_value { 'HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\EventLog\\Security\\MaxSize':
     ensure => present,
     type   => 'dword',
-    data   => '512000000'
+    data   => $security_log_max_size
   }
 
   registry_value { 'HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\EventLog\\System\\MaxSize':
     ensure => present,
     type   => 'dword',
-    data   => '512000000'
+    data   => $system_log_max_size
   }
 
 #Set Retention for Event Logs
