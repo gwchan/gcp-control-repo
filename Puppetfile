@@ -19,6 +19,12 @@ mod 'puppetlabs-ntp', '8.2.0'
 mod 'puppetlabs-wsus_client', '3.1.0'
 mod 'puppetlabs-registry', '3.1.0'
 
+#OS Patching
+mod 'albatrossflavour-os_patching', '0.13.0'
+mod 'puppet-cron', '2.0.0'
+mod 'puppetlabs-scheduled_task', '2.0.0'
+mod 'puppetlabs-cron_core', '1.0.3'
+
 #mod 'puppetlabs-cd4pe', :latest
 # Requirements for cd4pe
 #mod 'puppetlabs-concat', '4.2.1'
