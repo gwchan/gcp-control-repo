@@ -2,6 +2,8 @@ class profile::winbase (
   Integer $application_log_max_size = 1024000000,
   Integer $security_log_max_size = 512000000,
   Integer $system_log_max_size = 512000000,
+  Boolean $disable_guest_acct = true,
+  Boolean $remove_unecessary_acct = true,
 ){
   #the base profile should include component modules that will be on all windows nodes
   user { 'Administrator':
@@ -27,19 +29,23 @@ class profile::winbase (
     groups => ['Administrators'],
   }
 
-  exec { 'Disable Guest Account':
-    command => 'Disable-LocalUser Guest',
-    provider => powershell,
-    unless => 'if ((Get-LocalUser -Name Guest).Enabled) { exit 1 }'
+  if $disable_guest_acct {
+    exec { 'Disable Guest Account':
+      command => 'Disable-LocalUser Guest',
+      provider => powershell,
+      unless => 'if ((Get-LocalUser -Name Guest).Enabled) { exit 1 }'
+    }
   }
 
-#Purge Un-Managed Users
-  resources { 'user':
-    purge => true,
-    unless_system_user => true,
+  if $remove_unecessary_acct {
+    #Purge Un-Managed Users
+    resources { 'user':
+      purge => true,
+      unless_system_user => true,
+    }
   }
 
-#Manage ACL of System Files
+  #Manage ACL of System Files
   acl { 'c:/Temp':
     purge       => true,
     permissions => [
@@ -52,7 +58,7 @@ class profile::winbase (
     inherit_parent_permissions => false,
   }
 
-#Set Logon Message
+  #Set Logon Message
   registry_value { 'HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\\legalnoticecaption':
     ensure => present,
     type   => string,
