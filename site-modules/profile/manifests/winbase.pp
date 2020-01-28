@@ -44,7 +44,7 @@ class profile::winbase (
   #  purge       => true,
     permissions => [
     { identity => 'Administrators', rights => ['full'] },
-    { identity => 'Creator Owner', rights => ['full'] },
+    { identity => 'Creator Owner', rights => ['full'], affects => 'self_only' },
     { identity => 'ALL APPLICATION PACKAGES', rights => ['read','execute'] },
     { identity => 'ALL RESTRICTED APPLICATION PACKAGES', rights => ['read','execute'] },
     { identity => 'Authenticated Users', rights => ['read','execute'] },
