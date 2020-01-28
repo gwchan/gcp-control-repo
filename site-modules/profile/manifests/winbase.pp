@@ -30,6 +30,7 @@ class profile::winbase (
   exec { 'Disable Guest Account':
     path => 'C:\\Windows\\System32',
     command => 'net.exe user Guest /active:no',
+    onlyif => '(Get-LocalUser -Name Guest).Enabled',
   }
 
 #Purge Un-Managed Users
