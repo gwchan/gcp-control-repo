@@ -41,7 +41,7 @@ class profile::winbase (
 
 #Manage ACL of System Files
   acl { 'c:/Temp':
-  #  purge       => true,
+    purge       => true,
     permissions => [
     { identity => 'Administrators', rights => ['full'] },
     { identity => 'Creator Owner', rights => ['full'], affects => 'all' },
