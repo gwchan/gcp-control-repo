@@ -126,7 +126,7 @@ Facter.add('cis_2_3_17_1') do
   confine osfamily: :windows
   pass = 'Fail'
 
-  if Facter::Core::Execution.execute('powershell "(New-Object -ComObject WScript.Shell).RegRead(\"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\FilterAdministratorToken\")"') == 1
+  if Facter::Core::Execution.execute('powershell "(New-Object -ComObject WScript.Shell).RegRead(\"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\FilterAdministratorToken\")"') == '1'
     pass = 'Pass'
   end
 
