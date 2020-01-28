@@ -139,7 +139,7 @@ Facter.add('uac_elevation_behaviour_for_admin') do
   confine osfamily: :windows
   uacprompt = 'Unknown'
 
-  case Facter::Core::Execution.execute('powershell "(New-Object -ComObject WScript.Shell).RegRead(\"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\ConsentPromptBehaviorAdmin\")"') == '1'
+  case Facter::Core::Execution.execute('powershell "(New-Object -ComObject WScript.Shell).RegRead(\"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\ConsentPromptBehaviorAdmin\")"')
   when '0'
     uacprompt = 'Elevate without prompting'
   when '1'
