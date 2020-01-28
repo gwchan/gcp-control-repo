@@ -4,6 +4,7 @@ class profile::winbase (
   Integer $system_log_max_size = 512000000,
   Boolean $disable_guest_acct = true,
   Boolean $remove_unecessary_acct = true,
+  Boolean $enable_uac_built_in_admin = true,
 ){
   #the base profile should include component modules that will be on all windows nodes
   user { 'Administrator':
@@ -11,7 +12,7 @@ class profile::winbase (
     comment => 'Built-in account for administering the computer/domain',
     groups  => ['Administrators'],
   }
-#Test
+  #Test
   user { 'DefaultAccount':
     ensure  => 'present',
     comment => 'A user account managed by the system.',
@@ -108,5 +109,14 @@ class profile::winbase (
     ensure => present,
     type   => 'dword',
     data   => '0'
+  }
+
+  if $enable_uac_built_in_admin {
+    #Enable UAC for Built-in Administrator
+    registry_value { 'HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\\FilterAdministratorToken':
+      ensure => present,
+      type   => 'dword',
+      data   => '1'
+    }
   }
 }
