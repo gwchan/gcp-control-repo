@@ -30,7 +30,7 @@ class profile::winbase (
   exec { 'Disable Guest Account':
     command => 'Disable-LocalUser Guest',
     provider => powershell,
-    unless => 'if (-Not (Get-LocalUser -Name Guest).Enabled) { exit 1 }'
+    unless => 'if ((Get-LocalUser -Name Guest).Enabled) { exit 1 }'
   }
 
 #Purge Un-Managed Users
