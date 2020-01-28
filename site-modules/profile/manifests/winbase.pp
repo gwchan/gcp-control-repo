@@ -28,9 +28,9 @@ class profile::winbase (
   }
 
   exec { 'Disable Guest Account':
-    path => 'C:\\Windows\\System32',
-    command => 'net.exe user Guest /active:no',
-    onlyif => "C:/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -NoProfile -NoLogo -NonInteractive -Command '(Get-LocalUser -Name Guest).Enabled'",
+    command => 'Disable-LocalUser Guest',
+    provider => powershell,
+    onlyif => '(Get-LocalUser -Name Guest).Enabled'
   }
 
 #Purge Un-Managed Users
