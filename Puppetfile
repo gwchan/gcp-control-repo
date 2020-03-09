@@ -20,6 +20,7 @@ mod 'puppetlabs-wsus_client', '3.1.0'
 mod 'puppetlabs-registry', '3.1.0'
 
 #OS Patching
+mod 'tragiccode-wsusserver', '1.1.2'
 mod 'albatrossflavour-os_patching', '0.13.0'
 mod 'puppet-cron', '2.0.0'
 mod 'puppetlabs-scheduled_task', '2.0.0'
