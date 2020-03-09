@@ -21,7 +21,9 @@ mod 'puppetlabs-registry', '3.1.0'
 
 #OS Patching
 mod 'tragiccode-wsusserver', '1.1.2'
+mod 'puppetlabs-pwshlib', '0.4.1'
 mod 'puppetlabs-iis', '7.0.0'
+
 mod 'albatrossflavour-os_patching', '0.13.0'
 mod 'puppet-cron', '2.0.0'
 mod 'puppetlabs-scheduled_task', '2.0.0'
