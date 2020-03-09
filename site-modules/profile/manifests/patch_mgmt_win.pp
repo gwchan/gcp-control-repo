@@ -27,7 +27,7 @@ class profile::patch_mgmt_win (
   } else {
     $updates = $updatescan
   }
-
+}
   # Now we can process each update with something like this
   # $updates.each | $kb | {
   #     < some code to install a $kb >
