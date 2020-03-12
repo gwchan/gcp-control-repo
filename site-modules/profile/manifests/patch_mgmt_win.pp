@@ -1,11 +1,12 @@
 class profile::patch_mgmt_win (
   Array $blacklist = [],
   Array $whitelist = [],
+  String $wsus_server = 'http://gw-win-11.gcp.local:8530',
 ) {
   include os_patching
 
   class { 'wsus_client':
-    server_url                 => 'http://gw-windows-11.gcp.internal:8530',
+    server_url                 => $wsus_server,
     target_group               => 'AutoApproval',
     enable_status_server       => true,
     auto_install_minor_updates => false,
