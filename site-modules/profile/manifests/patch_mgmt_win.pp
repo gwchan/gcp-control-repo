@@ -9,7 +9,7 @@ class profile::patch_mgmt_win (
 
   class { 'os_patching':
     patch_window     => 'Week3',
-    blackout_windows => { $blackout_window_name:
+    blackout_windows => { $blackout_window_name
       {
         'start': $blackout_window_start,
         'end':   $blackout_window_end,
