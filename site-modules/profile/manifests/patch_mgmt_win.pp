@@ -5,10 +5,11 @@ class profile::patch_mgmt_win (
   String $blackout_window_name = 'End of year change freeze',
   String $blackout_window_start = '2020-12-15T00:00:00+10:00',
   String $blackout_window_end = '2021-01-15T00:00:00+10:00',
+  String $patch_window = 'Week3',
 ) {
 
   class { 'os_patching':
-    patch_window     => 'Week3',
+    patch_window     => $patch_window,
     blackout_windows => { $blackout_window_name =>
       {
         start => $blackout_window_start,
