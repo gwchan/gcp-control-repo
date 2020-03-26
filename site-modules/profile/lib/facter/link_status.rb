@@ -10,7 +10,7 @@ Facter.add('link_status') do
           file_out = File.read(file_name).split("\n")
           
           file_out.each do |line|
-            puts line
+            #puts line
             item  = line.tr('"', '').split(',')
             link_status[item[0]] = {
               'Status'     => item[1].gsub(/True/,'Up'),
@@ -22,7 +22,7 @@ Facter.add('link_status') do
         end
         # Clear Temp File
         clear_file = Facter::Core::Execution.exec('C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -ExecutionPolicy remotesigned -Command "& { rm \"C:\Temp\link_status.txt\" }"')  
-        link_status
+        #link_status
         
       
      rescue StandardError => e
