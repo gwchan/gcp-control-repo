@@ -25,7 +25,7 @@ class profile::winbase (
     comment => 'Built-in account for guest access to the computer/domain (Managed by Puppet)',
   }
 
-  user { 'admin':
+  user { 'testadmin':
     ensure => 'present',
     groups => ['Administrators'],
   }
