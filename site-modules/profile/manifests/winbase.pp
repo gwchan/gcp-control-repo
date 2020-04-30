@@ -17,7 +17,7 @@ class profile::winbase (
     ensure  => 'present',
     comment => 'A user account managed by the system.',
   }
-  
+
   user {'Guest':
     name => 'Guest',
     ensure => present,

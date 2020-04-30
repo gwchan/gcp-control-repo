@@ -29,6 +29,8 @@ mod 'puppet-cron', '2.0.0'
 mod 'puppetlabs-scheduled_task', '2.0.0'
 mod 'puppetlabs-cron_core', '1.0.3'
 
+mod 'puppetlabs-chocolatey', '5.0.2'
+
 #mod 'puppetlabs-cd4pe', :latest
 # Requirements for cd4pe
 #mod 'puppetlabs-concat', '4.2.1'
