@@ -10,7 +10,7 @@ Facter.add('cluster_owner') do
   end
 end
 
-Facter.add('is_cluster_owner') do
+Facter.add('cluster_is_owner') do
   confine osfamily: :windows
   cowner = 'NA'
   result = 'No'
@@ -21,6 +21,6 @@ Facter.add('is_cluster_owner') do
   end
 
   setcode do
-    cowner  
+    result  
   end
 end
