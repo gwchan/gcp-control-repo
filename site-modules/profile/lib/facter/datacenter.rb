@@ -1,8 +1,8 @@
 Facter.add('datacenter') do
   setcode do
-    if Facter.value(:hostname)[-1,1]  == 1
+    if Facter.value(:hostname)[-1,1]  == '1'
         'PDC'
-    elsif
+    else
         'SDC'
     end
   end
