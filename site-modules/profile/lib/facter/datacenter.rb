@@ -1,4 +1,4 @@
-Facter.add(':datacenter') do
+Facter.add('datacenter') do
   setcode do
     if Facter.value(:hostname)[-1,1]  == 1
         'PDC'
