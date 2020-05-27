@@ -1,5 +1,5 @@
 
-Facter.add('Cluster Owner') do
+Facter.add('cluster_owner') do
   confine osfamily: :windows
   cowner = 'NA'
 
@@ -18,6 +18,7 @@ Facter.add('is_cluster_owner') do
   cowner = Facter::Core::Execution.execute('powershell "(Get-ClusterGroup -Name \"Cluster Group\" | Select -ExpandProperty \"OwnerNode\" | Select -ExpandProperty \"Name\")"')
   if Facter.value(:hostname) == cowner
     result = 'Yes'
+  end
 
   setcode do
     cowner  
