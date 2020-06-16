@@ -5,44 +5,47 @@ class profile::winbase (
   Boolean $disable_guest_acct = true,
   Boolean $remove_unecessary_acct = true,
   Boolean $enable_uac_built_in_admin = true,
+  Boolean $manage_user_acct = false,
 ){
+  if $manage_user_acct {
   #the base profile should include component modules that will be on all windows nodes
-  user { 'Administrator':
-    ensure  => 'present',
-    comment => 'Built-in account for administering the computer/domain',
-    groups  => ['Administrators'],
-  }
-  #Test
-  user { 'DefaultAccount':
-    ensure  => 'present',
-    comment => 'A user account managed by the system.',
-  }
-
-  user {'Guest':
-    name => 'Guest',
-    ensure => present,
-    groups    => ['Guests'],
-    comment => 'Built-in account for guest access to the computer/domain (Managed by Puppet)',
-  }
-
-  user { 'testadmin':
-    ensure => 'present',
-    groups => ['Administrators'],
-  }
-
-  if $disable_guest_acct {
-    exec { 'Disable Guest Account':
-      command => 'Disable-LocalUser Guest',
-      provider => powershell,
-      unless => 'if ((Get-LocalUser -Name Guest).Enabled) { exit 1 }'
+    user { 'Administrator':
+      ensure  => 'present',
+      comment => 'Built-in account for administering the computer/domain',
+      groups  => ['Administrators'],
     }
-  }
+    #Test
+    user { 'DefaultAccount':
+      ensure  => 'present',
+      comment => 'A user account managed by the system.',
+    }
 
-  if $remove_unecessary_acct {
-    #Purge Un-Managed Users
-    resources { 'user':
-      purge => true,
-      unless_system_user => true,
+    user {'Guest':
+      name => 'Guest',
+      ensure => present,
+      groups    => ['Guests'],
+      comment => 'Built-in account for guest access to the computer/domain (Managed by Puppet)',
+    }
+
+    user { 'testadmin':
+      ensure => 'present',
+      groups => ['Administrators'],
+    }
+
+    if $disable_guest_acct {
+      exec { 'Disable Guest Account':
+        command => 'Disable-LocalUser Guest',
+        provider => powershell,
+        unless => 'if ((Get-LocalUser -Name Guest).Enabled) { exit 1 }'
+      }
+    }
+
+    if $remove_unecessary_acct {
+      #Purge Un-Managed Users
+      resources { 'user':
+        purge => true,
+        unless_system_user => true,
+      }
     }
   }
 
