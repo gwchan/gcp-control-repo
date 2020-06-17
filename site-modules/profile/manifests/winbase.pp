@@ -6,6 +6,7 @@ class profile::winbase (
   Boolean $remove_unecessary_acct = true,
   Boolean $enable_uac_built_in_admin = true,
   Boolean $manage_user_acct = false,
+  Boolean $fujitsu_test = false,
 ){
   if $manage_user_acct {
   #the base profile should include component modules that will be on all windows nodes
