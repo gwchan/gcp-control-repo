@@ -31,15 +31,16 @@ mod 'puppetlabs-cron_core', '1.0.3'
 
 mod 'puppetlabs-chocolatey', '5.0.2'
 
-#mod 'puppetlabs-cd4pe', :latest
+mod 'puppetlabs-cd4pe', '2.0.1'
 # Requirements for cd4pe
-#mod 'puppetlabs-concat', '4.2.1'
-#mod 'puppetlabs-hocon', '1.0.1'
-#mod 'puppetlabs-puppet_authorization', '0.5.0'
-#mod 'puppetlabs-stdlib', '4.25.1'
-#mod 'puppetlabs-docker', '3.3.0'
-#mod 'puppetlabs-apt', '6.2.1'
-#mod 'puppetlabs-translate', '1.1.0'
+mod 'puppetlabs-stdlib', '6.3.0'
+mod 'puppetlabs-puppet_authorization', '0.5.1'
+mod 'puppetlabs-hocon', '1.1.0'
+mod 'puppetlabs-concat', '6.2.0'
+mod 'puppetlabs-docker', '3.10.1'
+mod 'puppetlabs-apt', '7.4.2'
+mod 'puppetlabs-translate', '2.2.0'
+mod 'puppetlabs-cd4pe_jobs', '1.2.1'
 
 # Modules for 
 
