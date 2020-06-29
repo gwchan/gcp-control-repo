@@ -149,7 +149,7 @@ Facter.add('uac_elevation_behaviour_for_admin') do
   when '3'
     uacprompt = 'Prompt for credentials'
   when '4'
-    uacprompt = 'Prompt for consent (Exception for TMG due to something)'
+    uacprompt = 'Prompt for consent'
   when '5'  
     uacprompt = 'Prompt for consent for Non-Windows binaries'
   else
