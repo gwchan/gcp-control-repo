@@ -7,8 +7,8 @@ class profile::patch_mgmt_win (
   String $blackout_window_end = '2021-01-15T00:00:00+10:00',
 ) {
 
-  class { 'pe_patch':s
-    blackout_windows => { $blackout_window_name =>
+  class { 'pe_patch':
+    blackout_window => { $blackout_window_name =>
       {
         start => $blackout_window_start,
         end   => $blackout_window_end,
