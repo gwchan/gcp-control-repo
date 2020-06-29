@@ -8,7 +8,7 @@ class profile::patch_mgmt_win (
   String $patch_window = 'Week3',
 ) {
 
-  class { 'os_patching':
+  class { 'pe_patch':
     patch_window     => $patch_window,
     blackout_windows => { $blackout_window_name =>
       {
@@ -27,8 +27,8 @@ class profile::patch_mgmt_win (
     detection_frequency_hours  => 22
   }
 
-  if $facts['os_patching'] {
-    $updatescan = $facts['os_patching']['missing_update_kbs']
+  if $facts['pe_patch'] {
+    $updatescan = $facts['pe_patch']['missing_update_kbs']
   }
   else {
     $updatescan = []
