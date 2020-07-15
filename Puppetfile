@@ -42,6 +42,11 @@ mod 'puppetlabs-apt', '7.4.2'
 mod 'puppetlabs-translate', '2.2.0'
 mod 'puppetlabs-cd4pe_jobs', '1.2.1'
 
+# Hardening
+mod 'fervid-harden_windows_server', '1.0.0'
+mod 'kpn-local_security_policy', '3.1.1'
+mod 'fervid-auditpol', '1.0.1'
+
 # Modules for 
 
 # Modules from Git
