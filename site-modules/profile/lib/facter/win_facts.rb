@@ -139,24 +139,24 @@ Facter.add('uac_elevation_behaviour_for_admin') do
   confine osfamily: :windows
   uacprompt = 'Unknown'
 
-  case Facter::Core::Execution.execute('powershell "(New-Object -ComObject WScript.Shell).RegRead(\"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\ConsentPromptBehaviorAdmin\")"')
-  when '0'
-    uacprompt = 'Elevate without prompting'
-  when '1'
-    uacprompt = 'Prompt for credentials on the secure desktop'
-  when '2'
-    uacprompt = 'Prompt for consent on the secure desktop'
-  when '3'
-    uacprompt = 'Prompt for credentials'
-  when '4'
-    uacprompt = 'Prompt for consent'
-  when '5'  
-    uacprompt = 'Prompt for consent for Non-Windows binaries'
-  else
-    uacprompt = 'Error'
-  end
-
   setcode do
+    case Facter::Core::Execution.execute('powershell "(New-Object -ComObject WScript.Shell).RegRead(\"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\ConsentPromptBehaviorAdmin\")"')
+    when '0'
+      uacprompt = 'Elevate without prompting'
+    when '1'
+      uacprompt = 'Prompt for credentials on the secure desktop'
+    when '2'
+      uacprompt = 'Prompt for consent on the secure desktop'
+    when '3'
+      uacprompt = 'Prompt for credentials'
+    when '4'
+      uacprompt = 'Prompt for consent'
+    when '5'  
+      uacprompt = 'Prompt for consent for Non-Windows binaries'
+    else
+      uacprompt = 'Error'
+    end
+  
     uacprompt  
   end
 end
