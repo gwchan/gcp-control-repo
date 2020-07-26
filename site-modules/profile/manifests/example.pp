@@ -4,4 +4,8 @@ class profile::example {
   notify {"Debian nodes":
     message => "Your debian nodes are ${join($debian_nodes, ', ')}",
   }
+  file { '/tmp/display.html':
+    ensure => file,
+    content => epp('display.epp', {'nodes_result' => $debian_nodes}),
+  }
 }
