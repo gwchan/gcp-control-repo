@@ -6,6 +6,6 @@ class profile::example {
   }
   file { '/tmp/display.html':
     ensure => file,
-    content => epp('/data/display.epp', {'nodes_result' => $debian_nodes}),
+    content => epp('../data/display.epp', {'nodes_result' => $debian_nodes}),
   }
 }
