@@ -47,7 +47,11 @@ mod 'fervid-harden_windows_server', '1.0.0'
 mod 'kpn-local_security_policy', '3.1.1'
 mod 'fervid-auditpol', '1.0.1'
 
-# Modules for 
+# Modules for Kubernetes
+mod 'herculesteam-augeasproviders_sysctl', '2.5.0'
+mod 'herculesteam-augeasproviders_core', '2.6.0'
+mod 'camptocamp-kmod', '2.5.0'
+mod 'puppet-archive', '4.5.0'
 
 # Modules from Git
 # Examples: https://github.com/puppetlabs/r10k/blob/master/doc/puppetfile.mkd#examples
