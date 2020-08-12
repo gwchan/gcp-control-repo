@@ -4,10 +4,11 @@ version: 5
 defaults:
   datadir: "data"
 
-:hierarchy:
+hierarchy:
   - name: "Node specific"
     data_hash: yaml_data
     paths: "%{hostname}.yaml"
+
   - name: "OS Family specific"
     data_hash: yaml_data
     paths: "%{osfamily}.yaml"
