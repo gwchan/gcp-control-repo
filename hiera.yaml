@@ -5,5 +5,9 @@ defaults:
   datadir: "data"
 
 :hierarchy:
-  - "%{hostname}"
-  - "%{osfamily}"
+  - name: "Node specific"
+    data_hash: yaml_data
+    paths: "%{hostname}.yaml"
+  - name: "OS Family specific"
+    data_hash: yaml_data
+    paths: "%{osfamily}.yaml"
