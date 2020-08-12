@@ -9,5 +9,5 @@ hierarchy:
     data_hash: yaml_data
     paths:
       - "%{trusted.certname}.yaml"
-      - "%{facts.osfamily}.yaml"
+      - "%{osfamily}.yaml"
       - "common.yaml"
