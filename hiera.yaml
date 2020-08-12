@@ -8,5 +8,6 @@ hierarchy:
   - name: "Yaml backend"
     data_hash: yaml_data
     paths:
-      - "%{hostname}.yaml"
+      - "%{facts.hostname}.yaml"
+      - "%{facts.osfamily}.yaml"
       - "common.yaml"
