@@ -7,8 +7,8 @@ defaults:
 hierarchy:
   - name: "Node specific"
     data_hash: yaml_data
-    paths: "%{hostname}.yaml"
+    path: "%{hostname}.yaml"
 
   - name: "OS Family specific"
     data_hash: yaml_data
-    paths: "%{osfamily}.yaml"
+    path: "%{osfamily}.yaml"
