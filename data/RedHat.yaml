@@ -15,7 +15,7 @@ kubernetes::etcd_ip: "%{::ipaddress_eth0}"
 kubernetes::kube_api_advertise_address: "%{::ipaddress_eth0}"
 kubernetes::api_server_count: 1
 kubernetes::install_dashboard: false
-kubernetes::controller_address: 172.17.10.101:6443
+kubernetes::controller_address: "%{::ipaddress_eth0}:6443"
 kubernetes::token: 5fb759.cb5be20fabda56b8
  
 kubernetes::etcd_ca_crt: |
