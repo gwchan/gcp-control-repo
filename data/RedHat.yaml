@@ -9,8 +9,8 @@ kubernetes::cni_pod_cidr: 10.244.0.0/16
 kubernetes::etcd_initial_cluster: kube-master=https://172.17.10.101:2380
 kubernetes::etcd_peers:
 - 172.17.10.101
-kubernetes::etcd_ip: "%{::ipaddress_eth1}"
-kubernetes::kube_api_advertise_address: "%{::ipaddress_eth1}"
+kubernetes::etcd_ip: "%{::ipaddress_eth0}"
+kubernetes::kube_api_advertise_address: "%{::ipaddress_eth0}"
 kubernetes::api_server_count: 1
 kubernetes::install_dashboard: false
 kubernetes::controller_address: 172.17.10.101:6443
