@@ -53,6 +53,8 @@ mod 'herculesteam-augeasproviders_sysctl', '2.5.0'
 mod 'herculesteam-augeasproviders_core', '2.6.0'
 mod 'camptocamp-kmod', '2.5.0'
 mod 'puppet-archive', '4.5.0'
+mod 'puppetlabs-docker', '3.11.0'
+
 
 # Modules from Git
 # Examples: https://github.com/puppetlabs/r10k/blob/master/doc/puppetfile.mkd#examples
