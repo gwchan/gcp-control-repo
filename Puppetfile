@@ -47,7 +47,7 @@ mod 'kpn-local_security_policy', '3.1.1'
 mod 'fervid-auditpol', '1.0.1'
 
 # Modules for Kubernetes
-mod 'puppetlabs-kubernetes'
+mod 'puppetlabs-kubernetes',
     git:    'git@github.com:puppetlabs/puppetlabs-kubernetes.git',
     branch: :main
 mod 'herculesteam-augeasproviders_sysctl', '2.5.0'
