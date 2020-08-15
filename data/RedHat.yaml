@@ -1,6 +1,6 @@
 ---
-kubernetes::kubernetes_version: 1.13.2
-kubernetes::kubernetes_package_version: 1.13.2
+kubernetes::kubernetes_version: 1.18.8
+kubernetes::kubernetes_package_version: 1.18.8
 kubernetes::docker_package_name: docker-ce
 kubernetes::docker_version: 19.03.12-3.el7
 kubernetes::docker_yum_baseurl: https://download.docker.com/linux/centos/
