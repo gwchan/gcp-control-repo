@@ -49,7 +49,7 @@ mod 'fervid-auditpol', '1.0.1'
 # Modules for Kubernetes
 mod 'puppetlabs-kubernetes',
     git:    'git@gw-gitlab-01.gcp.internal:puppet/puppetlabs-kubernetes.git',
-    branch: :main
+    branch: 'main'
 mod 'herculesteam-augeasproviders_sysctl', '2.5.0'
 mod 'herculesteam-augeasproviders_core', '2.6.0'
 mod 'camptocamp-kmod', '2.5.0'
