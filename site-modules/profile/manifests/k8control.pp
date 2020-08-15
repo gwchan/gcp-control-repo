@@ -4,6 +4,12 @@ class profile::k8control {
     enable => false,
   }
 
+  file { '/var/lib/etcd':
+    ensure  => directory,
+    mode    => '0600',
+    recurse => true,
+  }
+
   class {'kubernetes':
     controller => true,
   }
