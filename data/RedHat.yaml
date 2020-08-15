@@ -165,7 +165,7 @@ kubernetes::kubernetes_ca_key: |
   /kTdMPzvsoX+4ibuhpG/3bHHc0b6mHa3jZvY402UakzV66Mqo4N2x+aGdOk2pxyh
   bqDuAb6Mid0jduOi5pdk+6TrnsjSi61gGv4y63vCVJ7I/J2HaUy9dg==
   -----END RSA PRIVATE KEY-----
-kubernetes::discovery_token_hash: 66a1ac0cc6fb2e55c3669326e84a750cd5b65b8d37cb9e8b1d438cc447887b45
+kubernetes::discovery_token_hash: 07e308eca2cccfd686bfe4cc592731ae485bc6bc627df79e98917f24c5c6f1f3
 
 
 
