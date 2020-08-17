@@ -24,6 +24,7 @@ class profile::k8control {
 
   exec {'copykubeconfig':
     command => 'sudo cp -i /etc/kubernetes/admin.conf /home/guangwei/.kube/config',
+    path    => '/usr/bin/'
     user    => 'guangwei',
     require => Class['kubernetes'],
   }
