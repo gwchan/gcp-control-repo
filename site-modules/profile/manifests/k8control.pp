@@ -33,6 +33,6 @@ class profile::k8control {
     mode    => '0600',
     owner   => 'guangwei',
     group   => 'guangwei',
-    require => Exec ['copykubeconfig'],
+    require => Exec['copykubeconfig'],
   }
 }
