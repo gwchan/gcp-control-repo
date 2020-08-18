@@ -31,7 +31,7 @@ class profile::k8control {
 
   file { '/home/guangwei/.kube/config':
     ensure  => present,
-    mode    => '0600',
+    mode    => '0644',
     owner   => 'guangwei',
     group   => 'guangwei',
     require => Exec['copykubeconfig'],
