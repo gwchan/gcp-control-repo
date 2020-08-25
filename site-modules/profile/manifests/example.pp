@@ -16,8 +16,15 @@ class profile::example (
     content => epp('profile/display.epp', {'nodes_result' => $debian_nodes}),
   }
 
+  schedule { 'everyday': 
+    period  => daily,
+    range   => "2-4",
+    repeat  => "1",
+  }
+
   exec {'Send Email':
-    command => "sendmail -t < ${email_file}",
-    path    => '/usr/sbin/',
+    command   => "sendmail -t < ${email_file}",
+    path      => '/usr/sbin/',
+    schedule  => 'everyday',
   }
 }

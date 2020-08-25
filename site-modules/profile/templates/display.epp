@@ -4,15 +4,14 @@ Subject: Your CentOS Report
 Content-Type: text/html
 
 <html>
-<head>Testing</head>
 <body>
   <p>
     <b>Your Nodes are:</b><br/>
     <%= $nodes_result.join(',') %>
   </p>
   <p>
-    ServerName <%= $facts[fqdn] %>
-    ServerAlias <%= $facts[hostname] %>
+    Sender FQDN <%= $facts[fqdn] %><br/>
+    Sender Hostname <%= $facts[hostname] %>
   </p>
 </body>
 </html>
