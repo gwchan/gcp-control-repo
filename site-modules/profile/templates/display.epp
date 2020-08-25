@@ -1,9 +1,8 @@
-# Email Headers
 From: Puppet Master <gw-puppet-01@puppet.com>
 To: Gw <guangwei.chan@puppet.com>
 Subject: Your CentOS Report
 Content-Type: text/html
-# display template
+
 <html>
 <head>Testing</head>
 <body>
