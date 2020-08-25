@@ -1,4 +1,6 @@
-class profile::example {
+class profile::example (
+  String $email_file = "/tmp/display.html",
+) {
   $debian_nodes_query = 'nodes[certname] {
                           facts {
                             name = "operatingsystem" 
@@ -9,8 +11,13 @@ class profile::example {
   notify {"Debian nodes":
     message => "Your debian nodes are ${join($debian_nodes, ', ')}",
   }
-  file { '/tmp/display.html':
+  file { $email_file :
     ensure => file,
     content => epp('profile/display.epp', {'nodes_result' => $debian_nodes}),
+  }
+
+  exec {'Send Email':
+    command => "sendmail -t < ${email_file}",
+    path    => '/usr/sbin/',
   }
 }
