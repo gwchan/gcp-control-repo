@@ -22,9 +22,9 @@ class profile::example (
     repeat  => "1",
   }
 
-  exec {'Send Email':
-    command   => "sendmail -t < ${email_file}",
-    path      => '/usr/sbin/',
-    schedule  => 'everyday',
-  }
+#  exec {'Send Email':
+#    command   => "sendmail -t < ${email_file}",
+#    path      => '/usr/sbin/',
+#    schedule  => 'everyday',
+#  }
 }
